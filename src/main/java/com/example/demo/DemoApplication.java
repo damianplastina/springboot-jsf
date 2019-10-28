@@ -21,7 +21,7 @@ public class DemoApplication {
     @Bean
     public ServletRegistrationBean servletRegistrationBean() {
         FacesServlet servlet = new FacesServlet();
-        return new ServletRegistrationBean(servlet, "*.jsf");
+        return new ServletRegistrationBean(servlet, "*.xhtml");
     }
 
     @Bean
