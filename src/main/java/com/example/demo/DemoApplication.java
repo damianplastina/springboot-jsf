@@ -1,15 +1,11 @@
 package com.example.demo;
 
-import org.ocpsoft.rewrite.servlet.RewriteFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
 import javax.faces.webapp.FacesServlet;
-import javax.servlet.DispatcherType;
-import java.util.EnumSet;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -24,12 +20,4 @@ public class DemoApplication {
         return new ServletRegistrationBean(servlet, "*.xhtml");
     }
 
-    @Bean
-    public FilterRegistrationBean rewriteFilter() {
-        FilterRegistrationBean rwFilter = new FilterRegistrationBean(new RewriteFilter());
-        rwFilter.setDispatcherTypes(EnumSet.of(DispatcherType.FORWARD, DispatcherType.REQUEST,
-                DispatcherType.ASYNC, DispatcherType.ERROR));
-        rwFilter.addUrlPatterns("/*");
-        return rwFilter;
-    }
 }
